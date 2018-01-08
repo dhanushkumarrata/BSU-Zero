@@ -8,7 +8,7 @@ contract WhoToken {
     uint[] tokensUsedPerEntry;
   }
 
-  mapping (address => holder) public holderInfo;
+  mapping (address => tokenHolder) public holderInfo;
 
   uint public totalTokens;
   uint public balanceTokens;
@@ -35,6 +35,11 @@ contract WhoToken {
     return totalUsedTokens;
   }
 
+  function checkBalance() view public returns (uint) {
+      uint balanceTokens = holderInfo[msg.sender].tokensBought - totalTokensUsed(holderInfo[msg.sender].tokensUsedPerEntry);
+      return balanceTokens;
+  }
+
   function buy() payable public returns (uint) {
     uint tokensToBuy = msg.value / tokenPrice;
     require(tokensToBuy <= balanceTokens);
@@ -49,7 +54,7 @@ contract WhoToken {
   }
 
   function holderDetails(address user) view public returns (uint, uint[]) {
-    return (holderInfo[user].tokensBought, holderInfo[user].tokensUsedPerCandidate);
+    return (holderInfo[user].tokensBought, holderInfo[user].tokensUsedPerEntry);
   }
 
   function transferTo(address account) public {
