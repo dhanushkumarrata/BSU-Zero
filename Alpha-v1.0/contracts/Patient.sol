@@ -6,10 +6,10 @@ contract Patient {
     uint age;
   }
 
-  mapping (bytes32 => voter) public patientInfo;
+  mapping (bytes32 => patient) public patientInfo;
 
   function putPatient(bytes32 pName, uint pAge) public {
-    patientInfo[pName].voter = pAge;
+    patientInfo[pName].age = pAge;
   }
 
   function getPatient(bytes32 _pName) public returns uint {
