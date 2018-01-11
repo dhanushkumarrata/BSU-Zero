@@ -12,7 +12,7 @@ contract Patient {
     patientInfo[pName].age = pAge;
   }
 
-  function getPatient(bytes32 _pName) public returns uint {
+  function getPatient(bytes32 _pName) public returns (uint) {
       return patientInfo[_pName].age;
   }
 

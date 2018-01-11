@@ -5,7 +5,7 @@ contract WhoToken {
   struct tokenHolder {
     address holderAddress;
     uint tokensBought;
-    uint[] tokensUsedPerEntry;
+    uint tokensUsed;
   }
 
   mapping (address => tokenHolder) public holderInfo;
@@ -20,24 +20,16 @@ contract WhoToken {
     tokenPrice = pricePerToken;
   }
 
-  function spendTokens(uint votesInTokens) public {
-    uint availableTokens = holderInfo[msg.sender].tokensBought - totalTokensUsed(holderInfo[msg.sender].tokensUsedPerEntry);
-    require(availableTokens >= votesInTokens);
+  function spendTokens(uint entryInTokens) public {
+    uint availableTokens = holderInfo[msg.sender].tokensBought - holderInfo[msg.sender].tokensUsed;
+    require(availableTokens >= entryInTokens);
 
-    holderInfo[msg.sender].tokensUsedPerEntry[index] += votesInTokens;
-  }
-
-  function totalTokensUsed(uint[] _tokensUsedPerEntry) private pure returns (uint) {
-    uint totalUsedTokens = 0;
-    for(uint i = 0; i < _tokensUsedPerEntry.length; i++) {
-      totalUsedTokens += _tokensUsedPerEntry[i];
-    }
-    return totalUsedTokens;
+    holderInfo[msg.sender].tokensUsed += entryInTokens;
   }
 
   function checkBalance() view public returns (uint) {
-      uint balanceTokens = holderInfo[msg.sender].tokensBought - totalTokensUsed(holderInfo[msg.sender].tokensUsedPerEntry);
-      return balanceTokens;
+      uint tokenBalance = holderInfo[msg.sender].tokensBought - holderInfo[msg.sender].tokensUsed;
+      return tokenBalance;
   }
 
   function buy() payable public returns (uint) {
@@ -53,8 +45,8 @@ contract WhoToken {
     return totalTokens - balanceTokens;
   }
 
-  function holderDetails(address user) view public returns (uint, uint[]) {
-    return (holderInfo[user].tokensBought, holderInfo[user].tokensUsedPerEntry);
+  function holderDetails(address user) view public returns (uint, uint) {
+    return (holderInfo[user].tokensBought, holderInfo[user].tokensUsed);
   }
 
   function transferTo(address account) public {

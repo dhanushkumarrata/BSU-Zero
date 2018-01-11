@@ -1,0 +1,616 @@
+{
+  "contractName": "Patient",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "pName",
+          "type": "bytes32"
+        },
+        {
+          "name": "pAge",
+          "type": "uint256"
+        }
+      ],
+      "name": "putPatient",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_pName",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getPatient",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "patientInfo",
+      "outputs": [
+        {
+          "name": "age",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b6101998061001e6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063426f19951461005c5780637899a34e1461008c578063ef52dcef146100c7575b600080fd5b341561006757600080fd5b61008a600480803560001916906020019091908035906020019091905050610102565b005b341561009757600080fd5b6100b1600480803560001916906020019091905050610128565b6040518082815260200191505060405180910390f35b34156100d257600080fd5b6100ec60048080356000191690602001909190505061014f565b6040518082815260200191505060405180910390f35b806000808460001916600019168152602001908152602001600020600001819055505050565b60008060008360001916600019168152602001908152602001600020600001549050919050565b600060205280600052604060002060009150905080600001549050815600a165627a7a72305820c330a25f26238a9a71837494eda8cd879c3ec9ae3bc2828f5effe58788a899870029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063426f19951461005c5780637899a34e1461008c578063ef52dcef146100c7575b600080fd5b341561006757600080fd5b61008a600480803560001916906020019091908035906020019091905050610102565b005b341561009757600080fd5b6100b1600480803560001916906020019091905050610128565b6040518082815260200191505060405180910390f35b34156100d257600080fd5b6100ec60048080356000191690602001909190505061014f565b6040518082815260200191505060405180910390f35b806000808460001916600019168152602001908152602001600020600001819055505050565b60008060008360001916600019168152602001908152602001600020600001549050919050565b600060205280600052604060002060009150905080600001549050815600a165627a7a72305820c330a25f26238a9a71837494eda8cd879c3ec9ae3bc2828f5effe58788a899870029",
+  "sourceMap": "26:313:0:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:313:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;138:93;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;235:101;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;86:47;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;138:93;222:4;197:11;:18;209:5;197:18;;;;;;;;;;;;;;;;;:22;;:29;;;;138:93;;:::o;235:101::-;287:4;308:11;:19;320:6;308:19;;;;;;;;;;;;;;;;;:23;;;301:30;;235:101;;;:::o;86:47::-;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\ncontract Patient {\n\n  struct patient {\n    uint age;\n  }\n\n  mapping (bytes32 => patient) public patientInfo;\n\n  function putPatient(bytes32 pName, uint pAge) public {\n    patientInfo[pName].age = pAge;\n  }\n\n  function getPatient(bytes32 _pName) public returns (uint) {\n      return patientInfo[_pName].age;\n  }\n\n}\n",
+  "sourcePath": "/home/pmarella/Work/Wholicity/Alpha-v1.0/contracts/Patient.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/home/pmarella/Work/Wholicity/Alpha-v1.0/contracts/Patient.sol",
+      "exportedSymbols": {
+        "Patient": [
+          37
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            37
+          ],
+          "name": "Patient",
+          "scope": 38
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "Patient.patient",
+              "name": "patient",
+              "scope": 37,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "age",
+                  "scope": 4,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 2,
+                    "name": "ElementaryTypeName",
+                    "src": "69:4:0"
+                  }
+                ],
+                "id": 3,
+                "name": "VariableDeclaration",
+                "src": "69:8:0"
+              }
+            ],
+            "id": 4,
+            "name": "StructDefinition",
+            "src": "48:34:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "patientInfo",
+              "scope": 37,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(bytes32 => struct Patient.patient storage ref)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(bytes32 => struct Patient.patient storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 5,
+                    "name": "ElementaryTypeName",
+                    "src": "95:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "patient",
+                      "referencedDeclaration": 4,
+                      "type": "struct Patient.patient storage pointer"
+                    },
+                    "id": 6,
+                    "name": "UserDefinedTypeName",
+                    "src": "106:7:0"
+                  }
+                ],
+                "id": 7,
+                "name": "Mapping",
+                "src": "86:28:0"
+              }
+            ],
+            "id": 8,
+            "name": "VariableDeclaration",
+            "src": "86:47:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "putPatient",
+              "payable": false,
+              "scope": 37,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "pName",
+                      "scope": 23,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 9,
+                        "name": "ElementaryTypeName",
+                        "src": "158:7:0"
+                      }
+                    ],
+                    "id": 10,
+                    "name": "VariableDeclaration",
+                    "src": "158:13:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "pAge",
+                      "scope": 23,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 11,
+                        "name": "ElementaryTypeName",
+                        "src": "173:4:0"
+                      }
+                    ],
+                    "id": 12,
+                    "name": "VariableDeclaration",
+                    "src": "173:9:0"
+                  }
+                ],
+                "id": 13,
+                "name": "ParameterList",
+                "src": "157:26:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 14,
+                "name": "ParameterList",
+                "src": "191:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "age",
+                              "referencedDeclaration": 3,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct Patient.patient storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 8,
+                                      "type": "mapping(bytes32 => struct Patient.patient storage ref)",
+                                      "value": "patientInfo"
+                                    },
+                                    "id": 15,
+                                    "name": "Identifier",
+                                    "src": "197:11:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 10,
+                                      "type": "bytes32",
+                                      "value": "pName"
+                                    },
+                                    "id": 16,
+                                    "name": "Identifier",
+                                    "src": "209:5:0"
+                                  }
+                                ],
+                                "id": 17,
+                                "name": "IndexAccess",
+                                "src": "197:18:0"
+                              }
+                            ],
+                            "id": 18,
+                            "name": "MemberAccess",
+                            "src": "197:22:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 12,
+                              "type": "uint256",
+                              "value": "pAge"
+                            },
+                            "id": 19,
+                            "name": "Identifier",
+                            "src": "222:4:0"
+                          }
+                        ],
+                        "id": 20,
+                        "name": "Assignment",
+                        "src": "197:29:0"
+                      }
+                    ],
+                    "id": 21,
+                    "name": "ExpressionStatement",
+                    "src": "197:29:0"
+                  }
+                ],
+                "id": 22,
+                "name": "Block",
+                "src": "191:40:0"
+              }
+            ],
+            "id": 23,
+            "name": "FunctionDefinition",
+            "src": "138:93:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getPatient",
+              "payable": false,
+              "scope": 37,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_pName",
+                      "scope": 36,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 24,
+                        "name": "ElementaryTypeName",
+                        "src": "255:7:0"
+                      }
+                    ],
+                    "id": 25,
+                    "name": "VariableDeclaration",
+                    "src": "255:14:0"
+                  }
+                ],
+                "id": 26,
+                "name": "ParameterList",
+                "src": "254:16:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 36,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 27,
+                        "name": "ElementaryTypeName",
+                        "src": "287:4:0"
+                      }
+                    ],
+                    "id": 28,
+                    "name": "VariableDeclaration",
+                    "src": "287:4:0"
+                  }
+                ],
+                "id": 29,
+                "name": "ParameterList",
+                "src": "286:6:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 29
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "age",
+                          "referencedDeclaration": 3,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct Patient.patient storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 8,
+                                  "type": "mapping(bytes32 => struct Patient.patient storage ref)",
+                                  "value": "patientInfo"
+                                },
+                                "id": 30,
+                                "name": "Identifier",
+                                "src": "308:11:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 25,
+                                  "type": "bytes32",
+                                  "value": "_pName"
+                                },
+                                "id": 31,
+                                "name": "Identifier",
+                                "src": "320:6:0"
+                              }
+                            ],
+                            "id": 32,
+                            "name": "IndexAccess",
+                            "src": "308:19:0"
+                          }
+                        ],
+                        "id": 33,
+                        "name": "MemberAccess",
+                        "src": "308:23:0"
+                      }
+                    ],
+                    "id": 34,
+                    "name": "Return",
+                    "src": "301:30:0"
+                  }
+                ],
+                "id": 35,
+                "name": "Block",
+                "src": "293:43:0"
+              }
+            ],
+            "id": 36,
+            "name": "FunctionDefinition",
+            "src": "235:101:0"
+          }
+        ],
+        "id": 37,
+        "name": "ContractDefinition",
+        "src": "26:313:0"
+      }
+    ],
+    "id": 38,
+    "name": "SourceUnit",
+    "src": "0:340:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {
+    "1515532063441": {
+      "events": {},
+      "links": {},
+      "address": "0x52a7f26044fbf03143523ffef91bca80323d9616"
+    },
+    "1515706629054": {
+      "events": {},
+      "links": {},
+      "address": "0x78e0b9e775c0e0790c65eece64113ba94c0b1644"
+    },
+    "1515706678224": {
+      "events": {},
+      "links": {},
+      "address": "0x1bd9bdd1e99b927b15e2972a0efeaf8e8791b6b3"
+    },
+    "1515706765607": {
+      "events": {},
+      "links": {},
+      "address": "0xe858cc2d1d3e48a2d472911f6aef7b436e204834"
+    },
+    "1515706863807": {
+      "events": {},
+      "links": {},
+      "address": "0xc7db199f4afd7c47083d13553dc81918d798007c"
+    },
+    "1515707046339": {
+      "events": {},
+      "links": {},
+      "address": "0x3ed09827cf9e6bbef40ef9c27168564ef2e5a6d3"
+    },
+    "1515707092699": {
+      "events": {},
+      "links": {},
+      "address": "0xe5df4880ec2113001b71d4cae734b5a088a7a871"
+    },
+    "1515707142922": {
+      "events": {},
+      "links": {},
+      "address": "0x46a1c6457dac8db832439708f8a93a6d2b78b50c"
+    },
+    "1515708748991": {
+      "events": {},
+      "links": {},
+      "address": "0x824a844852e8395f4c99ba3cebb6108923b04314"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-01-11T22:12:36.086Z"
+}

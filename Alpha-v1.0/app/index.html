@@ -29,8 +29,8 @@
         <br>
 
         <h3 style="color:rgb(0,0,0)">Get Patient Info:</h3>
-        <div id="msg"></div>
-        <input type="text" id="ptname" placeholder="Enter the Patient name (first only)" style="width: 250px" />
+        <div id="msg1"></div>
+        <input type="text" id="ptname1" placeholder="Enter the Patient name (first)" style="width: 250px" />
         <br>
         <br>
         <a href="#" onclick="loadPatient()" class="btn btn-primary">Load</a>
@@ -39,7 +39,7 @@
 
         <h3 style="color:rgb(0,0,0)">Enter New Patient:</h3>
         <div id="msg2"></div>
-        <input type="text" id="ptname" placeholder="Enter the Patient name (first only)" style="width: 250px"/>
+        <input type="text" id="ptname2" placeholder="Enter the Patient name (first)" style="width: 250px"/>
         <br>
         <br>
         <input type="text" id="ptage" placeholder="Enter the Patient age" style="width: 250px"/>
@@ -48,7 +48,7 @@
         <input type="text" id="whotokens" placeholder="Enter Token cost (requires 2)" style="width: 250px"/>
         <br>
         <br>
-        <a href="#" onclick="insertNewPatient()" class="btn btn-primary">Insert</a>
+        <a href="#" onclick="insertPatient()" class="btn btn-primary">Insert</a>
         <br>
     </div>
 
@@ -67,11 +67,11 @@
                             <td id="tokens-sold"></td>
                         </tr>
                         <tr>
-                            <td>Price per Token (in Ether)</td>
+                            <td>Price per Token</td>
                             <td id="token-cost"></td>
                         </tr>
                         <tr>
-                            <td>Balance in the Contract (in Ether)</td>
+                            <td>Balance in the Contract</td>
                             <td id="contract-balance"></td>
                         </tr>
                     </table>
@@ -92,11 +92,13 @@
             <div class="row margin-top-3">
                 <h3 style="color:rgb(0,0,0)">Lookup Token Holder Info:</h3>
                 <div class="col-sm-14">
-                    <input type="text" id="haddr" placeholder="Enter the voter address" style="width: 250px"/>
+                    <div id="msg4"></div>
+                    <input type="text" id="haddr" placeholder="Enter the user address" style="width: 250px"/>
                     <br>
                     <br>
                     <a href="#" onclick="lookupHolderInfo()" class="btn btn-primary">Lookup</a>
                     <div class="holder-details row text-left">
+                        <div id="hAddress" class="margin-top-3 col-md-12"></div>
                         <div id="tokensbought" class="margin-top-3 col-md-12"></div>
                         <div id="entriesadded" class="col-md-12"></div>
                     </div>
