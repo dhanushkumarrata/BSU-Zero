@@ -30,9 +30,9 @@
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.1",
     "truffle-contract": "^1.1.11",
-    "web3": "^0.20.0",
+    "web3": "^0.20.4",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0"
+    "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -40,6 +40,7 @@
     "express": "^4.16.2",
     "jsbn": "^1.1.0",
     "jspaillier": "^0.1.1",
+    "mysql": "^2.15.0",
     "node-php": "0.0.1",
     "path": "^0.12.7",
     "php": "0.0.1",
